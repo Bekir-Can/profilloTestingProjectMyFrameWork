@@ -12,8 +12,13 @@ public abstract class BasePage {
     }
 
 
+
     @FindBy(xpath = "//span[text()='Books']")
     public WebElement BooksButton;
+
+    @FindBy(xpath = "(//span[@class='title'])[2]")
+    public WebElement usersButton;
+
 
 
 }
