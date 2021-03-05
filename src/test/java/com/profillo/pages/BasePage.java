@@ -1,5 +1,6 @@
 package com.profillo.pages;
 
+import com.profillo.utilities.BrowserUtils;
 import com.profillo.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,6 +37,8 @@ public abstract class BasePage {
         is inside BasePage which is opening
         in every page of the application*/
     public void logOut() {
+        userMenu.click();
+        BrowserUtils.waitFor(1);
         logoutButton.click();
     }
 
