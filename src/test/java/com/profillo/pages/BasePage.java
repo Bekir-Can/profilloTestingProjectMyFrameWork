@@ -7,18 +7,32 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
 
-    public BasePage(){
-        PageFactory.initElements(Driver.get(),this);
+    public BasePage() {
+        PageFactory.initElements(Driver.get(), this);
     }
 
-
-
-    @FindBy(xpath = "//span[text()='Books']")
-    public WebElement BooksButton;
+    @FindBy(xpath = "//span[.='Dashboard']")
+    public WebElement dashboardButton;
 
     @FindBy(xpath = "(//span[@class='title'])[2]")
     public WebElement usersButton;
 
+    @FindBy(xpath = "//span[text()='Books']")
+    public WebElement booksButton;
+
+    @FindBy(css = "#navbarDropdown>span")
+    public WebElement userMenu;
+
+    @FindBy(css = ".dropdown-item")
+    public WebElement logoutButton;
+
+    public String getUserText() {
+        return userMenu.getText();
+    }
+
+    public void logOut() {
+        logoutButton.click();
+    }
 
 
 }
