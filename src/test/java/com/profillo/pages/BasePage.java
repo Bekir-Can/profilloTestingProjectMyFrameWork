@@ -26,7 +26,7 @@ public abstract class BasePage {
     @FindBy(css = ".dropdown-item")
     public WebElement logoutButton;
 
-    //this method will return the user informations in string
+    //this method will return the user informations in string...
     public String getUserText() {
         return userMenu.getText();
     }
