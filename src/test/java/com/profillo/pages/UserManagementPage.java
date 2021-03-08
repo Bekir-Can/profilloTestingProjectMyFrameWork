@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class UserManagementPage extends BasePage{
 
-    @FindBy(xpath = "//a[@data-toggle='modal']")
+    @FindBy(xpath = "//a[normalize-space()='Add User']")
     public WebElement addUserButton;
 
     @FindBy(xpath = "//h5[text()='Edit User Information']")

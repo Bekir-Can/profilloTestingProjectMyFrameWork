@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/",
         glue = "com/profillo/step_definitions",
         dryRun = false,
-        tags = "@SmokeUsers"
+        tags = "@PROF-350"
 
 )
 public class CukesRunner {
