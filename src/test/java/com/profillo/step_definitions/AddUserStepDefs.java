@@ -15,14 +15,15 @@ public class AddUserStepDefs {
     public void the_librarian_clicked_Add_User_button() {
         BrowserUtils.waitFor(2);
         new DashBoardPage().usersButton.click();
-        BrowserUtils.waitFor(2);
+
     }
 
     @When("the librarian fill all fields with proper infos and click save changes")
     public void the_librarian_fill_all_fields_with_proper_infos_and_click_save_changes() {
 
+        BrowserUtils.waitFor(2);
         UserManagementPage userManagementPage = new UserManagementPage();
-        userManagementPage.addUserButton.click();
+        BrowserUtils.clickWithJS(userManagementPage.addUserButton);
         BrowserUtils.waitFor(2);
 
         AddUserPage addUserPage = new AddUserPage();
