@@ -53,7 +53,6 @@ public class BookManagementPage extends BasePage {
 
 
     }
-
     public String getExpected() {
         Select select = new Select(categoryDropdown);
     //    System.out.println(select.getFirstSelectedOption().getText());
