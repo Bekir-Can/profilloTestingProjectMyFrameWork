@@ -8,6 +8,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class UserManagementStepDefs {
 
@@ -60,6 +63,54 @@ public class UserManagementStepDefs {
         Assert.assertEquals( "Add User",button.addWindow.getText() );
 
     }
+
+    @When("the user clicks on User Group dropdown and see following options")
+    public void the_user_clicks_on_User_Group_dropdown_and_see_following_options(List<String> userOptions) {
+
+        BrowserUtils.waitFor( 1 );
+        button.userGroupBox.click();
+        Select select = new Select( new UserManagementPage().userGroupBox );
+        List<String> actualOptions = BrowserUtils.getElementsText(select.getOptions());
+        Assert.assertEquals(userOptions,actualOptions);
+
+
+    }
+
+    @When("the user can click and select one of the options")
+    public void the_user_can_click_and_select_one_of_the_options() {
+
+        BrowserUtils.waitFor( 3 );
+        Select select = new Select( new UserManagementPage().userGroupBox );
+        select.selectByVisibleText( "Students" );
+        button.studentsColumn();
+
+    }
+
+    @Then("the Group column in the table should show only related options")
+    public void the_Group_column_in_the_table_should_show_only_related_options() {
+
+        BrowserUtils.waitFor( 3 );
+        Select select = new Select( new UserManagementPage().userGroupBox );
+        select.selectByVisibleText( "Librarian" );
+        button.librarianColumn();
+
+    }
+
+    @Then("the user clicks show records dropdown")
+    public void the_user_clicks_show_records_dropdown() {
+
+    }
+
+    @Then("the user can select,click one of the {int}")
+    public void the_user_can_select_click_one_of_the(Integer int1) {
+
+    }
+
+    @Then("the number of rows in the table should be {int}")
+    public void the_number_of_rows_in_the_table_should_be(Integer int1) {
+
+    }
+
 
 
 }
