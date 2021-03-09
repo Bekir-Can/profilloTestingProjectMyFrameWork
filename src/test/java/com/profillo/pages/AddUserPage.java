@@ -36,6 +36,30 @@ public class AddUserPage extends BasePage{
     @FindBy(css = ".toast-message")
     public WebElement successMessage;
 
+    @FindBy(xpath = "(//div/label[@class='control-label'])[3]")
+    public WebElement fullName;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[4]")
+    public WebElement password;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[5]")
+    public WebElement email;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[6]")
+    public WebElement userGroup;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[7]")
+    public WebElement status;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[8]")
+    public WebElement startDate;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[9]")
+    public WebElement endDate;
+
+    @FindBy(xpath = "(//label[@class='control-label'])[10]")
+    public WebElement address;
+
     public void enterFullNamePasswordEmail(){
         Faker faker = new Faker();
 
