@@ -1,4 +1,4 @@
-Feature:Edit User Functionality
+Feature:
 
   Background:
 		#@PROF-229
@@ -39,3 +39,4 @@ Feature:Edit User Functionality
       | 100     | 100           |
       | 200     | 200           |
       | 500     | 500           |
+
