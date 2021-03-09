@@ -14,8 +14,6 @@ import org.junit.runner.RunWith;
         glue = "com/profillo/step_definitions",
         dryRun = false,
 
-        tags = "@PROF-346"
-
 )
 public class CukesRunner {
 }
