@@ -52,6 +52,23 @@ public class BookManagementStepDefs {
         BrowserUtils.waitFor( 2 );
         Assert.assertEquals( "Add Book",button. addBookWindow.getText() );
     }
+    @When("the librarian click Book Categories dropdown box")
+    public void the_librarian_click_Book_Categories_dropdown_box() {
+        BrowserUtils.waitFor(3);
+        button.categoryDropdown.click();
+
+    }
+
+    @When("the librarian select and click one category")
+    public void the_librarian_select_and_click_one_category() {
+
+    }
+
+    @Then("the librarian see books related to that category")
+    public void the_librarian_see_books_related_to_that_category() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
 
 
 }

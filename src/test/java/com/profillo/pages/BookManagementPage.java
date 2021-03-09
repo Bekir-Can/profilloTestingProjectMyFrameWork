@@ -22,6 +22,11 @@ public class BookManagementPage extends BasePage {
     @FindBy(xpath = "//button[text()='Close']")
     public WebElement closeWindow;
 
+    @FindBy(id = "book_categories")
+    public WebElement categoryDropdown;
+
+
+
     public void chooseRandomEditBook() {
         Random ran = new Random();
         int rnd = ran.nextInt(10) + 1;
