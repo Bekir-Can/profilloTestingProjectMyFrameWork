@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
+
 public class BookManagementStepDefs {
     BookManagementPage button = new BookManagementPage();
 
@@ -61,13 +63,21 @@ public class BookManagementStepDefs {
 
     @When("the librarian select and click one category")
     public void the_librarian_select_and_click_one_category() {
+        button.selectBooksCategory();
+        BrowserUtils.waitFor(3);
+
 
     }
 
     @Then("the librarian see books related to that category")
     public void the_librarian_see_books_related_to_that_category() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        List<String> categories = button.getCategories();
+        for (String category : categories) {
+            Assert.assertEquals(button.getExpected(),category);
+            
+        }
+
+
     }
 
 
