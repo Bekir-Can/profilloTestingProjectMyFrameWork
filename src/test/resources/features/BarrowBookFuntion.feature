@@ -1,14 +1,26 @@
 @PROF-327
-Feature: 
+Feature: Barrow Book Functions
 
-	Background:
+  Background:
 		#@PROF-234
-		Given Student logged in the application
+    Given Student logged in the application
 
-	@PROF-319 @PROF-326
-	Scenario: Student can barrow books
-		When the user click the active Barrow Book button
-		Then the user can see green pop up and borrow the book	
+  @PROF-319 @PROF-326
+  Scenario Outline: Student can barrow books
+    And the user choose one records dropdow "<options>"
+    When the user click the active Barrow Book button
+    Then the user can see green pop up and borrow the book
+    Examples:
+
+      | options|
+      | 5      |
+      | 10     |
+      | 15     |
+      | 50     |
+      | 100    |
+      | 200    |
+      | 500    |
+
 
 
 #	@PROF-320 @PROF-326
