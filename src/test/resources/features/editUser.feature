@@ -52,3 +52,14 @@ Feature:
       | student55@library  | Students              |
       | 482                | ACTIVE                |
 
+  @PROF-331 @PROF-332
+  Scenario Outline: User status dropdown
+    Given the librarian clicked on Users module
+    Then the User Management page opened
+    When the librarian clicks Status box to select an "<option>"
+    Then the column called Status in the table should show only "<relatedOption>"
+    Examples:
+      | option   | relatedOption |
+      | ACTIVE   | ACTIVE        |
+      | INACTIVE | INACTIVE      |
+
