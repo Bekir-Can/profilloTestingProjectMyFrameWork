@@ -137,14 +137,20 @@ public class UserManagementStepDefs {
 
     @When("the librarian clicks Status box to select an {string}")
     public void the_librarian_clicks_Status_box_to_select_an(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        BrowserUtils.waitFor( 2 );
+        button.statusBox.click();
+        Select userStatus = new Select( button.statusBox );
+        userStatus.selectByVisibleText( string );
+
     }
 
     @Then("the column called Status in the table should show only {string}")
     public void the_column_called_Status_in_the_table_should_show_only(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        BrowserUtils.waitFor( 3 );
+        Assert.assertEquals( string,button.tableUserStatus( string ) );
+
     }
 
 
