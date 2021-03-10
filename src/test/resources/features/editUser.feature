@@ -39,3 +39,16 @@ Feature:
       | 100     | 100           |
       | 200     | 200           |
 
+  @PROF-330 @PROF-332
+  Scenario Outline: User search box
+    Given the librarian clicked on Users module
+    Then the User Management page opened
+    When the librarian clicks on search box and types some user "<information>"
+    Then the table should contain "<relatedUser>"
+    Examples:
+      | information        | relatedUser           |
+      | Ayjamal Abdurahman | aayjamal@gmail.com    |
+      | 445                | Arthur Schophenauer   |
+      | student55@library  | Students              |
+      | 482                | ACTIVE                |
+

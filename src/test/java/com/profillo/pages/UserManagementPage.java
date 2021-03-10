@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -36,8 +37,44 @@ public class UserManagementPage extends BasePage{
     @FindBy(id = "tbl_users_info")
     public WebElement tableRow;
 
-    @FindBy(id = "user_count")
-    public WebElement totalUser;
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement searchBox;
+
+    public ArrayList<String> getUserInfo(){
+
+        BrowserUtils.waitFor(4);
+        ArrayList<String> searchBy = new ArrayList<>();
+
+        for (int i = 1; i <= 6; i++) {
+
+            WebElement row = Driver.get().findElement(By.xpath("//table//tbody//tr[1]//td["+i+"]"));
+            searchBy.add(row.getText());
+
+        }
+
+        return searchBy;
+
+
+    }
+
+    public String tableUserStatus(String UserStatus){
+
+        List<WebElement> numRows = table;
+
+        for (int i = 1; i <= numRows.size(); i++) {
+
+            WebElement row = Driver.get().findElement(By.xpath("//table//tbody//tr["+i+"]//td[6]"));
+
+            return row.getText();
+
+            /*Assert.assertEquals(UserStatus, row.getText());*/
+
+        }
+
+        return UserStatus;
+    }
+
+
 
     public void studentsColumn(){
         BrowserUtils.waitFor( 2 );

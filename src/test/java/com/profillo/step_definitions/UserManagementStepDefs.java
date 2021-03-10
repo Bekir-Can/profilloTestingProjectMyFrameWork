@@ -27,7 +27,7 @@ public class UserManagementStepDefs {
     @Then("the User Management page opened")
     public void the_User_Management_page_opened() {
 
-        Assert.assertEquals( "http://library3.cybertekschool.com/#users", Driver.get().getCurrentUrl() );
+        Assert.assertEquals( "https://library3.cybertekschool.com/#users", Driver.get().getCurrentUrl() );
 
     }
 
@@ -111,7 +111,6 @@ public class UserManagementStepDefs {
         Select showRecords = new Select(new UserManagementPage().showBox);
         showRecords.selectByVisibleText(str);
 
-
     }
 
     @Then("the number of rows in the table should be {string}")
@@ -119,6 +118,20 @@ public class UserManagementStepDefs {
 
            BrowserUtils.waitFor( 3 );
         Assert.assertEquals(str2, new UserManagementPage().getTableRowNumber());
+
+    }
+
+    @When("the librarian clicks on search box and types some user {string}")
+    public void the_librarian_clicks_on_search_box_and_types_some_user(String string) {
+        BrowserUtils.waitFor( 3 );
+        button.searchBox.click();
+        button.searchBox.sendKeys( string );
+    }
+
+    @Then("the table should contain {string}")
+    public void the_table_should_contain(String string) {
+
+        Assert.assertTrue( button.getUserInfo().contains(string) );
 
     }
 
