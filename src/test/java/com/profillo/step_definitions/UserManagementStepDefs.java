@@ -99,18 +99,28 @@ public class UserManagementStepDefs {
     @Then("the user clicks show records dropdown")
     public void the_user_clicks_show_records_dropdown() {
 
-    }
-
-    @Then("the user can select,click one of the {int}")
-    public void the_user_can_select_click_one_of_the(Integer int1) {
+        BrowserUtils.waitFor( 2 );
+        button.showBox.click();
 
     }
 
-    @Then("the number of rows in the table should be {int}")
-    public void the_number_of_rows_in_the_table_should_be(Integer int1) {
+    @Then("the user can select,click one of the {string}")
+    public void the_user_can_select_click_one_of_the(String str) {
+
+        BrowserUtils.waitFor( 2 );
+        Select showRecords = new Select(new UserManagementPage().showBox);
+        showRecords.selectByVisibleText(str);
+
 
     }
 
+    @Then("the number of rows in the table should be {string}")
+    public void the_number_of_rows_in_the_table_should_be(String str2) {
+
+           BrowserUtils.waitFor( 3 );
+        Assert.assertEquals(str2, new UserManagementPage().getTableRowNumber());
+
+    }
 
 
 }

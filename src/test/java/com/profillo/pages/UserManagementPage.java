@@ -30,6 +30,15 @@ public class UserManagementPage extends BasePage{
     @FindBy(xpath="//table//tbody//tr/td[5]")////table//tbody//tr[2]/td[5]
     public List<WebElement> table;
 
+    @FindBy(name = "tbl_users_length")
+    public WebElement showBox;
+
+    @FindBy(id = "tbl_users_info")
+    public WebElement tableRow;
+
+    @FindBy(id = "user_count")
+    public WebElement totalUser;
+
     public void studentsColumn(){
         BrowserUtils.waitFor( 2 );
 
@@ -54,13 +63,29 @@ public class UserManagementPage extends BasePage{
         }
     }
 
-
-
     public void chooseRandomEditUser(){
         Random rn = new Random();
         int rndm= rn.nextInt(10)+1;
         WebElement editButton = Driver.get().findElement( By.xpath("//tbody/tr[" + rndm + "]/td[1]"));
         editButton.click();
     }
+
+    public String getTableRowNumber(){
+
+
+        BrowserUtils.waitFor(4);
+
+        String text = tableRow.getText();
+        String[] dateInputarr = text.split(" ");
+
+        System.out.println(dateInputarr[3]);
+
+        BrowserUtils.waitFor(3);
+
+        return dateInputarr[3];
+
+
+    }
+
 
 }

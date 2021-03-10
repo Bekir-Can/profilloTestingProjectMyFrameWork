@@ -28,8 +28,8 @@ Feature:
   Scenario Outline: Show user records dropdown
     Given the librarian clicked on Users module
     Then the user clicks show records dropdown
-    And the user can select,click one of the <numbers>
-    Then the number of rows in the table should be <relatedNumber>
+    And the user can select,click one of the "<numbers>"
+    Then the number of rows in the table should be "<relatedNumber>"
     Examples:
       | numbers | relatedNumber |
       | 5       | 5             |
@@ -38,5 +38,4 @@ Feature:
       | 50      | 50            |
       | 100     | 100           |
       | 200     | 200           |
-      | 500     | 500           |
 
