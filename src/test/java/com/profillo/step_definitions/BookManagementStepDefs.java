@@ -10,6 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.util.List;
+
 public class BookManagementStepDefs {
     BookManagementPage button = new BookManagementPage();
 
@@ -51,6 +53,31 @@ public class BookManagementStepDefs {
     public void the_Add_Book_window_will_open() {
         BrowserUtils.waitFor( 2 );
         Assert.assertEquals( "Add Book",button. addBookWindow.getText() );
+    }
+    @When("the librarian click Book Categories dropdown box")
+    public void the_librarian_click_Book_Categories_dropdown_box() {
+        BrowserUtils.waitFor(3);
+        button.categoryDropdown.click();
+
+    }
+
+    @When("the librarian select and click one category")
+    public void the_librarian_select_and_click_one_category() {
+        button.selectBooksCategory();
+        BrowserUtils.waitFor(3);
+
+
+    }
+
+    @Then("the librarian see books related to that category")
+    public void the_librarian_see_books_related_to_that_category() {
+        List<String> categories = button.getCategories();
+        for (String category : categories) {
+            Assert.assertEquals(button.getExpected(),category);
+            
+        }
+
+
     }
 
 
