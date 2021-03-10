@@ -27,7 +27,7 @@ public class UserManagementStepDefs {
     @Then("the User Management page opened")
     public void the_User_Management_page_opened() {
 
-        Assert.assertEquals( "http://library3.cybertekschool.com/#users", Driver.get().getCurrentUrl() );
+        Assert.assertEquals( "https://library3.cybertekschool.com/#users", Driver.get().getCurrentUrl() );
 
     }
 
@@ -99,16 +99,52 @@ public class UserManagementStepDefs {
     @Then("the user clicks show records dropdown")
     public void the_user_clicks_show_records_dropdown() {
 
-    }
-
-    @Then("the user can select,click one of the {int}")
-    public void the_user_can_select_click_one_of_the(Integer int1) {
+        BrowserUtils.waitFor( 2 );
+        button.showBox.click();
 
     }
 
-    @Then("the number of rows in the table should be {int}")
-    public void the_number_of_rows_in_the_table_should_be(Integer int1) {
+    @Then("the user can select,click one of the {string}")
+    public void the_user_can_select_click_one_of_the(String str) {
 
+        BrowserUtils.waitFor( 2 );
+        Select showRecords = new Select(new UserManagementPage().showBox);
+        showRecords.selectByVisibleText(str);
+
+    }
+
+    @Then("the number of rows in the table should be {string}")
+    public void the_number_of_rows_in_the_table_should_be(String str2) {
+
+           BrowserUtils.waitFor( 3 );
+        Assert.assertEquals(str2, new UserManagementPage().getTableRowNumber());
+
+    }
+
+    @When("the librarian clicks on search box and types some user {string}")
+    public void the_librarian_clicks_on_search_box_and_types_some_user(String string) {
+        BrowserUtils.waitFor( 3 );
+        button.searchBox.click();
+        button.searchBox.sendKeys( string );
+    }
+
+    @Then("the table should contain {string}")
+    public void the_table_should_contain(String string) {
+
+        Assert.assertTrue( button.getUserInfo().contains(string) );
+
+    }
+
+    @When("the librarian clicks Status box to select an {string}")
+    public void the_librarian_clicks_Status_box_to_select_an(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Then("the column called Status in the table should show only {string}")
+    public void the_column_called_Status_in_the_table_should_show_only(String string) {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
     }
 
 
