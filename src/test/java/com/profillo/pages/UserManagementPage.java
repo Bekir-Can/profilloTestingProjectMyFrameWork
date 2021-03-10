@@ -13,7 +13,7 @@ import java.util.Random;
 
 public class UserManagementPage extends BasePage{
 
-    @FindBy(xpath = "//a[normalize-space()='Add User']")
+    @FindBy(xpath = "//a[@data-toggle='modal']")
     public WebElement addUserButton;
 
     @FindBy(xpath = "//h5[text()='Edit User Information']")
@@ -39,6 +39,9 @@ public class UserManagementPage extends BasePage{
 
     @FindBy(xpath = "//input[@type='search']")
     public WebElement searchBox;
+
+    @FindBy(id = "user_status")
+    public WebElement statusBox;
 
     public ArrayList<String> getUserInfo(){
 
