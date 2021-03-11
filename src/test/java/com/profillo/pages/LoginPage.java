@@ -34,4 +34,32 @@ public class LoginPage {
         signInButton.click();
     }
 
+    public void login(String userNameStr, String passwordStr) {
+        usernameInputBox.sendKeys(userNameStr);
+        passwordInputBox.sendKeys(passwordStr);
+        signInButton.click();
+
+    }
+    public void login1(String librarian, String passwordd) {
+        usernameInputBox.sendKeys(librarian);
+        passwordInputBox.sendKeys(passwordd);
+        signInButton.click();
+    }
+    public void login2(String InvalidEmail, String InvalidPassword) {
+        usernameInputBox.sendKeys(InvalidEmail);
+        passwordInputBox.sendKeys(InvalidPassword);
+        signInButton.click();
+    }
+    public void preLogIn(String librarianEmail, String librarianPassword){
+        usernameInputBox.sendKeys(librarianEmail);
+        passwordInputBox.sendKeys(librarianPassword);
+        signInButton.click();
+
+
+
+
+    }
+
+
+
 }
