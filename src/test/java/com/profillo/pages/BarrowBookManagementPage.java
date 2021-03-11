@@ -12,6 +12,9 @@ import java.util.List;
 
 public class BarrowBookManagementPage extends BasePage {
 
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public WebElement inactiveButton;
+
      @FindBy(name = "tbl_books_length")
     public WebElement entityDropDown;
 
@@ -47,7 +50,6 @@ public class BarrowBookManagementPage extends BasePage {
         }
 
     }
-    @FindBy(xpath = "//tbody/tr[1]/td[1]")
-    public WebElement inactiveButton;
+
 }
 
