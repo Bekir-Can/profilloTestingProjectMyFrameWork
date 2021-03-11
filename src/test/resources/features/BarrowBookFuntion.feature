@@ -23,12 +23,12 @@ Feature: Barrow Book Functions
 
 
 
-#	@PROF-320 @PROF-326
-#	Scenario: Book can not barrowed twice
-#		When the user click inactive Borrow Book button
-#		Then the user can not borrowed same book twice
-#
-#
+	@PROF-320 @PROF-326
+	Scenario: Book can not barrowed twice
+		When the user click inactive Borrow Book button
+		Then the user can not borrowed same book twice
+
+
 #	@PROF-321 @PROF-326
 #	Scenario: Navigate history of barrowed books
 #		When the user navigate Borrowing Book module

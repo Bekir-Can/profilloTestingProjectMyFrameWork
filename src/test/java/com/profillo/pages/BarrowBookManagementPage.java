@@ -47,6 +47,7 @@ public class BarrowBookManagementPage extends BasePage {
         }
 
     }
-
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public WebElement inactiveButton;
 }
 
