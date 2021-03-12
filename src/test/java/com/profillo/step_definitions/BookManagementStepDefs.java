@@ -25,7 +25,9 @@ public class BookManagementStepDefs {
     
     @Then("the Book Management page opened")
     public void the_Book_Management_page_opened() {
-        Assert.assertEquals("http://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl());
+      
+        Assert.assertEquals( "https://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl() );
+
     }
     
     @When("the librarian clicks Edit Book button")
