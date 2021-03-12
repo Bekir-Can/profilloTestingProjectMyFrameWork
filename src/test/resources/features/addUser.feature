@@ -1,3 +1,4 @@
+@addUser
 Feature:Add User Functionality
 
   Background:
