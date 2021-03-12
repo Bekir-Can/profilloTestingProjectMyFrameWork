@@ -1,21 +1,24 @@
 package com.profillo.pages;
 
 import com.github.javafaker.Faker;
+import com.profillo.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-public class AddUserPage extends BasePage{
-    @FindBy(name="full_name")
+import java.util.List;
+
+public class AddUserPage extends BasePage {
+    @FindBy(name = "full_name")
     public WebElement fullNameInput;
 
-    @FindBy(name="password")
+    @FindBy(name = "password")
     public WebElement passwordInput;
 
-    @FindBy(name="email")
+    @FindBy(name = "email")
     public WebElement emailInput;
 
-    @FindBy(id="user_group_id")
+    @FindBy(id = "user_group_id")
     public WebElement userGroupDropDown;
 
     @FindBy(id = "status")
@@ -60,7 +63,10 @@ public class AddUserPage extends BasePage{
     @FindBy(xpath = "(//label[@class='control-label'])[10]")
     public WebElement address;
 
-    public void enterFullNamePasswordEmail(){
+    @FindBy(xpath = "//h5[text()='Add User']")
+    public WebElement mainTitle;
+
+    public void enterFullNamePasswordEmail() {
         Faker faker = new Faker();
 
         fullNameInput.sendKeys(faker.name().fullName());
@@ -69,21 +75,34 @@ public class AddUserPage extends BasePage{
 
     }
 
-    public void selectUser(String user){
+    public void selectUser(String user) {
         Select select = new Select(userGroupDropDown);
         select.selectByVisibleText(user);
 
     }
-    public void selectStatus(String status){
+
+    public void selectStatus(String status) {
         Select select = new Select(statusDropDown);
         select.selectByVisibleText(status);
 
     }
-    public void enterAddress(){
+
+    public void enterAddress() {
         Faker faker = new Faker();
         addressInput.sendKeys(faker.address().fullAddress());
 
     }
 
+    public List<String> getUserGroupText() {
+        Select select = new Select(userGroupDropDown);
+        List<String> elementsText = BrowserUtils.getElementsText(select.getOptions());
+        return elementsText;
 
+
+    }
+    public List<String> getStatusText() {
+        Select select = new Select(statusDropDown);
+        List<String> elementsText = BrowserUtils.getElementsText(select.getOptions());
+        return elementsText;
+    }
 }

@@ -5,10 +5,13 @@ import com.profillo.pages.AddUserPage;
 import com.profillo.pages.DashBoardPage;
 import com.profillo.pages.UserManagementPage;
 import com.profillo.utilities.BrowserUtils;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+
+import java.util.List;
 
 public class AddUserStepDefs {
     @Given("the librarian clicked +Add User button")
@@ -39,7 +42,7 @@ public class AddUserStepDefs {
 
     @Then("the librarian should get {string}")
     public void the_librarian_should_get(String message) {
-        Assert.assertEquals(message,new AddUserPage().successMessage.getText());
+        Assert.assertEquals(message, new AddUserPage().successMessage.getText());
 
 
     }
@@ -66,17 +69,38 @@ public class AddUserStepDefs {
 
         AddUserPage addUserPage = new AddUserPage();
 
-        Assert.assertEquals(fullName,addUserPage.fullName.getText());
-        Assert.assertEquals(password,addUserPage.password.getText());
-        Assert.assertEquals(email,addUserPage.email.getText());
-        Assert.assertEquals(userGroup,addUserPage.userGroup.getText());
-        Assert.assertEquals(status,addUserPage.status.getText());
-        Assert.assertEquals(startDate,addUserPage.startDate.getText());
-        Assert.assertEquals(endDate,addUserPage.endDate.getText());
-        Assert.assertEquals(address,addUserPage.address.getText());
-
+        Assert.assertEquals(fullName, addUserPage.fullName.getText());
+        Assert.assertEquals(password, addUserPage.password.getText());
+        Assert.assertEquals(email, addUserPage.email.getText());
+        Assert.assertEquals(userGroup, addUserPage.userGroup.getText());
+        Assert.assertEquals(status, addUserPage.status.getText());
+        Assert.assertEquals(startDate, addUserPage.startDate.getText());
+        Assert.assertEquals(endDate, addUserPage.endDate.getText());
+        Assert.assertEquals(address, addUserPage.address.getText());
 
 
     }
 
+    @Then("the user should get all necessary userGroup options")
+    public void the_user_should_get_all_necessary_userGroup_options(List<String> userGroup) {
+        System.out.println("userGroup = " + userGroup);
+        System.out.println("new AddUserPage().getUserGroupText() = " + new AddUserPage().getUserGroupText());
+        Assert.assertEquals(userGroup, new AddUserPage().getUserGroupText());
+
+
+    }
+
+    @Then("the user should get all necessary status options")
+    public void the_user_should_get_all_necessary_status_options(List<String> status ) {
+        System.out.println("status = " + status);
+        System.out.println("new AddUserPage().getStatusText() = " + new AddUserPage().getStatusText());
+        Assert.assertEquals(status,new AddUserPage().getStatusText());
+
+    }
+
+    @Then("user should get {string} main title")
+    public void user_should_get_main_title(String mainTitle) {
+        AddUserPage addUserPage = new AddUserPage();
+        Assert.assertEquals(mainTitle,addUserPage.mainTitle.getText());
+    }
 }

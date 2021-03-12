@@ -28,3 +28,31 @@ Feature:Add User Functionality
     Given the librarian clicked on Users module
     When the librarian clicked +Add User button
     Then all the parameters titles should match with "Full Name","Password","Email","User Group","Status","Start Date","End Date","Address"
+
+
+
+  @PROF-395
+  Scenario: Add User Group Test
+    Given the librarian clicked on Users module
+    When the librarian clicked +Add User button
+    Then the user should get all necessary userGroup options
+      |Librarian|
+      |Students |
+
+
+
+  @PROF-398
+  Scenario: Add User Status Test
+    Given the librarian clicked on Users module
+    When the librarian clicked +Add User button
+    Then the user should get all necessary status options
+      |ACTIVE  |
+      |INACTIVE|
+
+
+
+  @PROF-403
+  Scenario: Add User Test for Smoke Suit
+    Given the librarian clicked on Users module
+    When the librarian clicked +Add User button
+    Then user should get "Add User" main title
