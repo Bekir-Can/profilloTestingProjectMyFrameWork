@@ -14,7 +14,7 @@ import java.util.Random;
 public class BookManagementPage extends BasePage {
 
 
-    @FindBy(xpath = "//a[@data-target='#ajax']")
+    @FindBy(xpath =  "//a[@data-target='#ajax']")
     public WebElement addBookButton;
 
     @FindBy(xpath = "//h5[text()='Edit Book Information']")
@@ -41,7 +41,7 @@ public class BookManagementPage extends BasePage {
 
     public void chooseRandomEditBook() {
         Random ran = new Random();
-        int rnd = ran.nextInt(10) + 1;
+        int rnd = ran.nextInt(10)+1;
         WebElement editBoButton = Driver.get().findElement(By.xpath("//tbody/tr[" + rnd + "]/td[1]"));
         editBoButton.click();
     }
@@ -57,7 +57,7 @@ public class BookManagementPage extends BasePage {
 
     public List<String> getCategories() {
         List<WebElement> elements = Driver.get().findElements(By.xpath("//tbody/tr/td[5]"));
-        //    System.out.println(BrowserUtils.getElementsText(elements));
+    //    System.out.println(BrowserUtils.getElementsText(elements));
         return BrowserUtils.getElementsText(elements);
 
 
@@ -65,7 +65,7 @@ public class BookManagementPage extends BasePage {
 
     public String getExpected() {
         Select select = new Select(categoryDropdown);
-        //    System.out.println(select.getFirstSelectedOption().getText());
+    //    System.out.println(select.getFirstSelectedOption().getText());
         return select.getFirstSelectedOption().getText();
     }
 
