@@ -138,10 +138,7 @@ public class UserManagementStepDefs {
     @When("the librarian clicks Status box to select an {string}")
     public void the_librarian_clicks_Status_box_to_select_an(String string) {
 
-        BrowserUtils.waitFor( 2 );
-        button.statusBox.click();
-        Select userStatus = new Select( button.statusBox );
-        userStatus.selectByVisibleText( string );
+        Assert.assertTrue( button.getUserInfo().contains(string) );
 
     }
 

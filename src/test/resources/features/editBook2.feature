@@ -1,4 +1,5 @@
-Feature: 
+@EditBook2
+Feature:
 
 	Background:
 		#@PROF-229
@@ -66,8 +67,8 @@ Feature:
 	Scenario Outline: Show book records
 		Given the librarian clicked on Books module
 		When the librarian should be able to click to show records dropdown box
-		And the librarian can select one <options> in show records dropdown
-		Then the librarian see the exact number of books that he <selected>
+		And the librarian can select one "<options>" in show records dropdown
+		Then the librarian see the exact number of books that he "<selected>"
 		Examples:
 			| options | selected |
 			|    5    |  5       |
@@ -82,10 +83,14 @@ Feature:
 	@PROF-349 @PROF-364
 	Scenario Outline: Search box
 		Given the librarian clicked on Books module
-		When the user should be able to click Search box, type <searchBy> and the user should be see books searched by Name or Author on Book Management page
+		When the user enter "<searchBy>" information
+		Then the user should get all the books consist of "<searchBy>"
+
 		Examples:
-		| searchBy           |
-		| Harry Potter       |
-		| Viktor Emil Frankl |  
+			| searchBy           |
+			| Harry Potter       |
+			| War                |
+			| Farm               |
+			| Don                |
 		
 		
