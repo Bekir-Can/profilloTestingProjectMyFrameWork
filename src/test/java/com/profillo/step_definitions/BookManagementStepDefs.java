@@ -25,36 +25,37 @@ public class BookManagementStepDefs {
     
     @Then("the Book Management page opened")
     public void the_Book_Management_page_opened() {
-        Assert.assertEquals( "http://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl() );
+        Assert.assertEquals("http://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl());
     }
     
     @When("the librarian clicks Edit Book button")
     public void the_librarian_clicks_Edit_Book_button() {
-        BrowserUtils.waitFor( 2 );
+        BrowserUtils.waitFor(2);
         button.chooseRandomEditBook();
     }
     
     @When("the Edit Book Information window will open")
     public void the_Edit_Book_Information_window_will_open() {
-        BrowserUtils.waitFor( 4 );
-        Assert.assertEquals( button.editBookWindow.getText(),"Edit Book Information" );
-        BrowserUtils.waitFor( 1 );
+        BrowserUtils.waitFor(4);
+        Assert.assertEquals(button.editBookWindow.getText(), "Edit Book Information");
+        BrowserUtils.waitFor(1);
         button.closeWindow.click();
-        BrowserUtils.waitFor( 3 );
+        BrowserUtils.waitFor(3);
     }
     
     @When("the librarian clicks Add Book button")
     public void the_librarian_clicks_Add_Book_button() {
-        BrowserUtils.waitFor( 2 );
+        BrowserUtils.waitFor(2);
         new BookManagementPage().addBookButton.click();
         
     }
     
     @Then("the Add Book window will open")
     public void the_Add_Book_window_will_open() {
-        BrowserUtils.waitFor( 2 );
-        Assert.assertEquals( "Add Book",button. addBookWindow.getText() );
+        BrowserUtils.waitFor(2);
+        Assert.assertEquals("Add Book", button.addBookWindow.getText());
     }
+
     @When("the librarian click Book Categories dropdown box")
     public void the_librarian_click_Book_Categories_dropdown_box() {
         BrowserUtils.waitFor(3);
@@ -74,8 +75,8 @@ public class BookManagementStepDefs {
     public void the_librarian_see_books_related_to_that_category() {
         List<String> categories = button.getCategories();
         for (String category : categories) {
-            Assert.assertEquals(button.getExpected(),category);
-            
+            Assert.assertEquals(button.getExpected(), category);
+
         }
     }
 
@@ -109,6 +110,8 @@ public class BookManagementStepDefs {
 
     }
 
+
+
     @Then("the user should get all the books consist of {string}")
     public void the_user_should_get_all_the_books_consist_of(String searchWord) {
         BookManagementPage bookManagementPage = new BookManagementPage();
@@ -120,14 +123,6 @@ public class BookManagementStepDefs {
 
 
         }
-
     }
-
-
-
-
-
-
-
 }
 

@@ -64,3 +64,19 @@ Feature:
       | ACTIVE   | ACTIVE        |
       | INACTIVE | INACTIVE      |
 
+
+    	#_8-Librarian can find book by using search box with book's Name and Author._
+  @PROF-349 @PROF-364
+  Scenario Outline: Search box test
+    Given the librarian clicked on Books module
+    When the user enter "<searchBy>" information
+    Then the user should get all the books consist of "<searchBy>"
+
+    Examples:
+      | searchBy           |
+      | Harry Potter       |
+      | War                |
+      | Farm               |
+      | Don                |
+
+
