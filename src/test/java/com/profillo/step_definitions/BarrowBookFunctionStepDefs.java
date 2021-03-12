@@ -17,7 +17,7 @@ public class BarrowBookFunctionStepDefs {
 
     @Given("the user choose one records dropdown {string}")
     public void the_user_choose_one_records_dropdown(String number) {
-       new BarrowBookManagementPage().selectEntitiesNumber(number);
+        new BarrowBookManagementPage().selectEntitiesNumber(number);
     }
 
     @When("the user click the active Barrow Book button")
@@ -40,8 +40,17 @@ public class BarrowBookFunctionStepDefs {
     @Then("the user can not borrowed same book twice")
     public void the_user_can_not_borrowed_same_book_twice() {
         BrowserUtils.waitFor(3);
-        Assert.assertEquals("https://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl());
+        boolean flag = true;
+        try {
+            Assert.assertFalse(new BarrowBookManagementPage().message.isEnabled());
+        } catch (Exception e) {
+            System.out.println("catch run");
+            flag = false;
+            Assert.assertFalse(flag);
+        }
+
     }
+
     @When("the user navigate Borrowing Book module")
     public void the_user_navigate_Borrowing_Book_module() {
         BrowserUtils.waitFor(3);
@@ -53,6 +62,7 @@ public class BarrowBookFunctionStepDefs {
         BrowserUtils.waitFor(3);
         Assert.assertEquals("https://library3.cybertekschool.com/#borrowing-books", Driver.get().getCurrentUrl());
     }
+
     @When("the user click the Borrowing Books module")
     public void the_user_click_the_Borrowing_Books_module() {
         BrowserUtils.waitFor(3);
@@ -67,7 +77,7 @@ public class BarrowBookFunctionStepDefs {
 
     @Then("the user click the active Return Book button")
     public void the_user_click_the_active_Return_Book_button() {
-       new BarrowBookManagementPage().borrowingBookHistory();
+        new BarrowBookManagementPage().borrowingBookHistory();
 
     }
 
@@ -76,6 +86,7 @@ public class BarrowBookFunctionStepDefs {
         BrowserUtils.waitFor(3);
         Assert.assertEquals("The book has been returned..", new BarrowBookManagementPage().message.getText());
     }
+
     @When("the user click Book Categories dropdown box")
     public void the_user_click_Book_Categories_dropdown_box() {
         new BarrowBookManagementPage().categoryDropdown.click();
@@ -83,14 +94,14 @@ public class BarrowBookFunctionStepDefs {
 
     @Then("the user see all book categories")
     public void the_user_see_all_book_categories(List<String> bookOptions) {
-       BrowserUtils.waitFor(3);
-       new BarrowBookManagementPage().bookCategory(bookOptions);
+        BrowserUtils.waitFor(3);
+        new BarrowBookManagementPage().bookCategory(bookOptions);
     }
 
     @When("the user select and click one category")
     public void the_user_select_and_click_one_category() {
-       Select select = new Select( new BarrowBookManagementPage().categoryDropdown );
-        select.selectByVisibleText( "Classic");
+        Select select = new Select(new BarrowBookManagementPage().categoryDropdown);
+        select.selectByVisibleText("Classic");
     }
 
     @Then("the user see books related to that category")
@@ -98,6 +109,7 @@ public class BarrowBookFunctionStepDefs {
         BrowserUtils.waitFor(3);
         new BarrowBookManagementPage().selectCategory();
     }
+
     @Then("the user should be able to click to show records dropdown box")
     public void the_user_should_be_able_to_click_to_show_records_dropdown_box() {
         BrowserUtils.waitFor(3);
@@ -114,11 +126,12 @@ public class BarrowBookFunctionStepDefs {
 
     @Then("the user should be able to see the exact number of books that he selected")
     public void the_user_should_be_able_to_see_the_exact_number_of_books_that_he_selected() {
-        BrowserUtils.waitFor( 2 );
+        BrowserUtils.waitFor(2);
         List<WebElement> columnEditBook = new BarrowBookManagementPage().sizeTabe;
-        BrowserUtils.waitFor( 3 );
-        Assert.assertEquals( 10, columnEditBook.size() );
+        BrowserUtils.waitFor(3);
+        Assert.assertEquals(10, columnEditBook.size());
     }
+
     @When("the user in search box should type the name of the book")
     public void the_user_in_search_box_should_type_the_name_of_the_book() {
         BrowserUtils.waitFor(3);
