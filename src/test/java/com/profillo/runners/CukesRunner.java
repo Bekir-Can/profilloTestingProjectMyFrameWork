@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         glue = "com/profillo/step_definitions",
         dryRun = false,
 
-        tags = "@editBook1"
+        tags = "@PROF-403"
 
 
      
