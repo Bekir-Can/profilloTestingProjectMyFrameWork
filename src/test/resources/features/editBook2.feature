@@ -1,4 +1,3 @@
-@EditBook2
 Feature:
 
 	Background:
