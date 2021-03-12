@@ -63,8 +63,9 @@ public class BarrowBookManagementPage extends BasePage {
 
 
     public void borrowingBookHistory() {
+        int size = returnBooksList.size();
 
-        for (int i = 170; i <= 190; i++) {
+        for (int i = 1; i <= size; i++) {
             try {
                 BrowserUtils.waitForClickablility(Driver.get().findElement(By.xpath("//tbody/tr[" + i + "]/td[1]/a")), 2);
                 WebElement element = Driver.get().findElement(By.xpath("//tbody/tr[" + i + "]/td[1]/a"));
@@ -140,5 +141,8 @@ public class BarrowBookManagementPage extends BasePage {
         }
 
     }
+
+    @FindBy(xpath = "//tbody/tr")
+    public List<WebElement> returnBooksList;
 
 }
