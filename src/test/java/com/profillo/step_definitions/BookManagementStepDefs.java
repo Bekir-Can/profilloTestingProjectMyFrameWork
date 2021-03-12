@@ -23,6 +23,7 @@ public class BookManagementStepDefs {
 
     @Then("the Book Management page opened")
     public void the_Book_Management_page_opened() {
+        
         Assert.assertEquals( "https://library3.cybertekschool.com/#books", Driver.get().getCurrentUrl() );
     }
 
@@ -44,7 +45,7 @@ public class BookManagementStepDefs {
 
     @When("the librarian clicks Add Book button")
     public void the_librarian_clicks_Add_Book_button() {
-        BrowserUtils.waitFor( 3 );
+        BrowserUtils.waitFor( 2 );
         new BookManagementPage().addBookButton.click();
 
     }
