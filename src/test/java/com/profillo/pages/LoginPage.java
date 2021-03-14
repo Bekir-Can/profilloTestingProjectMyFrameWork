@@ -55,10 +55,8 @@ public class LoginPage {
         passwordInputBox.sendKeys(librarianPassword);
         signInButton.click();
 
-
-
-
     }
+
 
 
 
