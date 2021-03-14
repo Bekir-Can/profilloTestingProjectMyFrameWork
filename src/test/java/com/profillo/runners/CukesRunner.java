@@ -14,7 +14,8 @@ import org.junit.runner.RunWith;
         glue = "com/profillo/step_definitions",
         dryRun = false,
 
-        tags = "@123"
+        
+        tags = "@adduser"
 
 
      
