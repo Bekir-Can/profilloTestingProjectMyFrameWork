@@ -56,8 +56,6 @@ Feature: login function
       | librarian29@library | qMgZFGfc |
       | librarian30@library | PZ7IQ8G5 |
 
-
-
   @PROF-381 @PROF-377
   Scenario Outline: Stu. log in with invalid cred. (Test)
     When the user enter invalid credentials "<InvalidEmail>" "<InvalidPassword>"
